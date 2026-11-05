@@ -1,4 +1,4 @@
-let API "http://localhost:3000";
+let API = "http://localhost:3000";
 try { API = localStorage.getItem("apiUrl") || API; } catch (e) { }
 const $ = (id) => document.getElementByid(id);
 $(apiUrl).value = API;
@@ -113,7 +113,7 @@ document.addEventListener("click", async (e) => {
         carregarProdutos();
     }
     if (e.target.dataset.ed) {
-        cont resp = await fetch(`${API}/produtos/${e.target.dataset.ed}`);
+        const resp = await fetch(`${API}/produtos/${e.target.dataset.ed}`);
         entrarEdicao(await resp.json());
     }
 });
